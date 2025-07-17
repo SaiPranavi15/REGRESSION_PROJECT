@@ -19,8 +19,9 @@ if upload_file is not None:
     data = pd.read_csv(upload_file)
 else:
     # Fallback to embedded data if file not uploaded
-    from io import StringIO
-    csv_data = StringIO(\"\"\"YearsExperience,Salary
+from io import StringIO
+
+csv_data = StringIO("""YearsExperience,Salary
 1.1,39343.00
 1.3,46205.00
 1.5,37731.00
@@ -50,7 +51,8 @@ else:
 9.5,116969.00
 9.6,112635.00
 10.3,122391.00
-10.5,121872.00\"\"\")
+10.5,121872.00""")
+data = pd.read_csv(csv_data)
     data = pd.read_csv(csv_data)
 
 st.write("Preview of Dataset")
